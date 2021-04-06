@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webzent_tech_test/screens/animationScreen.dart';
 import 'package:webzent_tech_test/screens/assignment1.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +16,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Center(
         child: Column(
           children: [
-            Text('1. Fetching Api Data Click Here'),
+            SizedBox(
+              height: 30,
+            ),
+            Text('Fetching Api Data Click Here'),
             TextButton(
               child: Text('Assignment 1'),
               onPressed: () {
@@ -23,6 +27,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => Assignment1()),
                 );
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text('Animated Widget click here'),
+            TextButton(
+              child: Text('Assignment 2'),
+              onPressed: () {
+                Navigator.of(context).push(PageRouteBuilder(
+                    pageBuilder: (context, animation, anotherAnimation) {
+                      return AnimationScreen();
+                    },
+                    transitionDuration: Duration(milliseconds: 1500),
+                    transitionsBuilder:
+                        (context, animation, anotherAnimation, child) {
+                      animation = CurvedAnimation(
+                          curve: Curves.fastLinearToSlowEaseIn,
+                          parent: animation);
+                      return ScaleTransition(
+                        scale: animation,
+                        child: child,
+                      );
+                    }));
               },
             )
           ],
