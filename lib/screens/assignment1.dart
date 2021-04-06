@@ -19,7 +19,7 @@ class Assignment1 extends StatelessWidget {
             } else if (state is GetDataState) {
               return MaterialApp(
                   home: Scaffold(
-                    appBar: AppBar(title: Text('Recycler View from api data'),),
+                    appBar: AppBar(title: Text('Recycler Vievbbbbw from api data'),),
                 body: SingleChildScrollView(
                   child: ListView.builder(
                       scrollDirection: Axis.vertical,
