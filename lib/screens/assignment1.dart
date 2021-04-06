@@ -17,17 +17,26 @@ class Assignment1 extends StatelessWidget {
                 child: Text('Invalid data response'),
               );
             } else if (state is GetDataState) {
-              ListView.builder(
-                  itemCount: state.postDataModel.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      contentPadding: EdgeInsets.all(10),
-                      title: Text('${state.postDataModel[index].userId}'),
-                      subtitle: Text(state.postDataModel[index].title),
-                    );
-                  });
+              return MaterialApp(
+                  home: Scaffold(
+                    appBar: AppBar(title: Text('Recycler View from api data'),),
+                body: SingleChildScrollView(
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: state.postDataModel.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          contentPadding: EdgeInsets.all(10),
+                          title: Text('${state.postDataModel[index].userId}'),
+                          subtitle: Text(state.postDataModel[index].title),
+                        );
+                      }),
+                ),
+              ));
             }
-            
+
             return Center(child: CircularProgressIndicator());
           },
         ));
