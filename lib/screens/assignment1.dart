@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:webzent_tech_test/bloc/postdata_bloc.dart';
-import 'package:webzent_tech_test/screens/animationScreen.dart';
 
 class Assignment1 extends StatelessWidget {
   @override
@@ -19,27 +18,25 @@ class Assignment1 extends StatelessWidget {
               );
             } else if (state is GetDataState) {
               return MaterialApp(
-                  routes: {'afteranimation': (_) => AfterAnimationSCreen()},
                   home: Scaffold(
-                    appBar: AppBar(
-                      title: Text('Recycler Vievbbbbw from api data'),
-                    ),
-                    body: SingleChildScrollView(
-                      child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: state.postDataModel.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              contentPadding: EdgeInsets.all(10),
-                              title:
-                                  Text('${state.postDataModel[index].userId}'),
-                              subtitle: Text(state.postDataModel[index].title),
-                            );
-                          }),
-                    ),
-                  ));
+                appBar: AppBar(
+                  title: Text('Recycler Vievbbbbw from api data'),
+                ),
+                body: SingleChildScrollView(
+                  child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: state.postDataModel.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          contentPadding: EdgeInsets.all(10),
+                          title: Text('${state.postDataModel[index].userId}'),
+                          subtitle: Text(state.postDataModel[index].title),
+                        );
+                      }),
+                ),
+              ));
             }
 
             return Center(child: CircularProgressIndicator());
