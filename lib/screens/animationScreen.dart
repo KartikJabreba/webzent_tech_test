@@ -11,19 +11,14 @@ class _AnimationScreenState extends State<AnimationScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3),
-          ()=>Navigator.pushReplacement(context,
-                                        MaterialPageRoute(builder:
-                                                          (context) =>
-                                                          logo()
-                                                         )
-                                       )
-         );
+    Timer(Duration(milliseconds: 2000), ()=>Navigator.of(context).popAndPushNamed('afteranimation')
+    );
+
     // Timer(
     //   Duration(milliseconds: 2000),
     //   () => Navigator.of(context).push(PageRouteBuilder(
     //       pageBuilder: (context, animation, anotherAnimation) {
-    //         return logo();
+    //         return AnimationScreen();
     //       },
     //       transitionDuration: Duration(milliseconds: 2000),
     //       transitionsBuilder: (context, animation, anotherAnimation, child) {
@@ -33,13 +28,15 @@ class _AnimationScreenState extends State<AnimationScreen> {
     //         return SlideTransition(
     //           position: Tween(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
     //               .animate(animation),
-    //           child: logo(),
+    //           child: AfterAnimationSCreen(),
     //         );
     //       })),
     // );
   }
 
-  Widget logo() {
+  @override
+  Widget build(BuildContext context) {
+    
     return Container(
       color: Color(0xFF50ABF1),
       child: Center(
@@ -50,12 +47,14 @@ class _AnimationScreenState extends State<AnimationScreen> {
       )),
     );
   }
+}
 
+class AfterAnimationSCreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      child: Center(child: Text('sdfdfddfdfgfdg')),
+      color: Colors.black,
+      child: Center(child: Text('Hello User',)),
     );
   }
 }
