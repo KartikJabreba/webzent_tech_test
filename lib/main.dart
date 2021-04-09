@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webzent_tech_test/homescreen.dart';
+import 'package:webzent_tech_test/utils/storage.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Storage.getInstance();
   runApp(MyApp());
 }
 

@@ -9,37 +9,10 @@ class AnimationScreen extends StatefulWidget {
 
 class _AnimationScreenState extends State<AnimationScreen> {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        '/animationscreen': (context) => AnimationAcreen(),
-        '/afteranimationscreen': (context) => AfterAnimation(),
-      },
-    );
-  }
-
-  Widget aaad() {
-    return Container(
-      color: Colors.white,
-      child: Center(child: Text('cccccccccccccccccccccccccc')),
-    );
-  }
-}
-
-class AnimationAcreen extends StatefulWidget {
-  @override
-  _AnimationAcreenState createState() => _AnimationAcreenState();
-}
-
-class _AnimationAcreenState extends State<AnimationAcreen> {
-  @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(
-      Duration(milliseconds: 2000),
-      () => Navigator.of(context).popAndPushNamed('/afteranimationscreen'),
-    );
+    Timer(Duration(milliseconds: 2000), () {});
   }
 
   @override
@@ -51,19 +24,6 @@ class _AnimationAcreenState extends State<AnimationAcreen> {
         'twitter.png',
         height: 130,
         width: 130,
-      )),
-    );
-  }
-}
-
-class AfterAnimation extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      child: Center(
-          child: Text(
-        'Hello User',
       )),
     );
   }

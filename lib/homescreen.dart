@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webzent_tech_test/screens/animationScreen.dart';
 import 'package:webzent_tech_test/screens/assignment1.dart';
 
+import 'screens/assignment3.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -40,19 +42,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     pageBuilder: (context, animation, anotherAnimation) {
                       return AnimationScreen();
                     },
-                    transitionDuration: Duration(milliseconds: 1500),
+                    transitionDuration: Duration(milliseconds: 2000),
                     transitionsBuilder:
                         (context, animation, anotherAnimation, child) {
                       animation = CurvedAnimation(
                           curve: Curves.fastLinearToSlowEaseIn,
                           parent: animation);
-                      return ScaleTransition(
-                        scale: animation,
-                        child: child,
-                      );
+                      return ScaleTransition(scale: animation, child: child);
                     }));
               },
-            )
+            ),Text('Fetching Saved DAta'),
+            TextButton(
+              child: Text('Assignment 3'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Assignment3()),
+                );
+              },
+            ),Text('Fetching Api Data Click Here'),
+            TextButton(
+              child: Text('Assignment 4'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Assignment1()),
+                );
+              },
+            ),
           ],
         ),
       ),
